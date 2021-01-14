@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node src/index"
+    "start": "node src/index",
+    "dev": "nodemon src/index",
+    "dev2": "nodemon src/telegrambot"
   },
   "keywords": [],
   "author": "",
@@ -12,9 +14,12 @@
   "devDependencies": {
     "eslint": "^7.17.0",
     "eslint-config-airbnb-base": "^14.2.1",
-    "eslint-plugin-import": "^2.22.1"
+    "eslint-plugin-import": "^2.22.1",
+    "nodemon": "^2.0.7"
   },
   "dependencies": {
-    "puppeteer": "^5.5.0"
+    "dotenv": "^8.2.0",
+    "puppeteer": "^5.5.0",
+    "telegraf": "^4.0.1"
   }
 }
