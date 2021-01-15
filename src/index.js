@@ -1,11 +1,22 @@
 require('dotenv').config();
 const { Telegraf } = require('telegraf');
+const Cron = require('cron');
 
 const commands = require('./commands');
 const checkPrice = require('./checkPrice');
 
 (async () => {
     const bot = new Telegraf(process.env.TELEGRAM_BOT_TOKEN);
+    const { CronJob } = Cron;
+
+    const job = new CronJob('00 00 00 * * *', async () => {
+        const d = new Date();
+        console.log('Midnight:', d);
+        const { currentPrice, inStock } = await checkPrice();
+        console.log(currentPrice, inStock);
+    });
+
+    job.start();
 
     console.log('Search for Neobot and use the following commands :');
     console.table(commands);
