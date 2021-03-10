@@ -3,11 +3,14 @@ import checkPrice from '../checkPrice';
 
 const priceScene = new Scenes.BaseScene<Scenes.SceneContext>('priceScene');
 
-priceScene.enter((ctx) => ctx.reply('Send me an amazon link'));
-
-priceScene.on('text', async (ctx) => {
+priceScene.enter(async (ctx) => {
     const { inStock, currentPrice } = await checkPrice();
-    ctx.reply(`The ${ctx.update.message.text} is ${inStock} for ${currentPrice}`);
+    ctx.reply(`The product is ${inStock} for ${currentPrice}`);
+});
+
+priceScene.command('check', async (ctx) => {
+    const { inStock, currentPrice } = await checkPrice();
+    ctx.reply(`The product is ${inStock} for ${currentPrice}`);
 });
 
 priceScene.command('/out', (ctx) => {
