@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "lib": [
+      "es5",
+      "es6",
+      "DOM"
+    ],
+    "target": "es5",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "outDir": "./build",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "sourceMap": true,
+    "esModuleInterop": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "alwaysStrict": true,
+    "resolveJsonModule": true,
+    "checkJs": true,
+    "noEmit": true,
+  },
+  "exclude": [
+    "node_modules"
+  ],
+  "include": [
+    "./src/**/*.ts",
+    "node_modules/puppeteer-tsd/src/index.d.ts"
+  ]
+}
